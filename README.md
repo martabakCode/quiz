@@ -26,12 +26,10 @@ Simaba is an application for conducting exams, built using Vite, React, PostCSS,
    ```
 2. Navigate into the project directory:
     ```
-    bash
     cd simaba
     ```
 3. Install dependencies using npm or yarn:
     ```
-    bash
     npm install
     # or
     yarn
@@ -40,7 +38,6 @@ Simaba is an application for conducting exams, built using Vite, React, PostCSS,
 ## Usage
 1. Start the development server:
 ```
-bash
 npm run dev
 # or
 yarn dev
