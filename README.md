@@ -21,7 +21,7 @@ Simaba is an application for conducting exams, built using Vite, React, PostCSS,
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone <repository-url>
    ```
 2. Navigate into the project directory:
