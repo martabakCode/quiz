@@ -15,7 +15,7 @@ Simaba is an application for conducting exams, built using Vite, React, PostCSS,
 - **React**: A JavaScript library for building user interfaces.
 - **PostCSS**: A tool for transforming CSS with JavaScript plugins.
 - **Flowbite**: A lightweight and flexible CSS framework for building modern web interfaces.
-- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **Ant Design CSS**: A utility-first CSS framework for rapidly building custom designs.
 
 ## Installation
 

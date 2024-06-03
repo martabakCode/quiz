@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Flex } from "antd";
 
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
@@ -12,10 +13,10 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
                 </svg>
             </div>
             <p class="text-gray-700 text-lg font-bold mb-6">Anda yakin ingin menyelesaikan ujian?</p>
-            <div class="flex justify-center">
-                <button onClick={onConfirm} class="border border-gray-700 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded inline-flex items-center mr-2">Yes</button>
-                <button onClick={onClose} class="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">No</button>
-            </div>
+            <Flex gap="middle">
+                <Button block onClick={onConfirm} class="border border-gray-700 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded inline-flex items-center mr-2">Yes</Button>
+                <Button type="primary" block onClick={onClose} class="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">No</Button>
+            </Flex>
         </div>
     </div>
   );

@@ -6,9 +6,16 @@ import Dashboard from './pages/Dashboard';
 import Start from './pages/Start';
 import Result from './pages/Result';
 import Question from './pages/Question';
-
+import { ConfigProvider } from 'antd';
 const App = () => {
   return (
+    <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#323232',
+      },
+    }}
+  >
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
@@ -19,6 +26,7 @@ const App = () => {
         <Route path="/result" element={<Result />} />
       </Routes>
     </Router>
+  </ConfigProvider>
   );
 };
 
