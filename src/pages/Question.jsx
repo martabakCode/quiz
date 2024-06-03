@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import questionsData from '../data/question.json';
 import QuestionNumberButton from '../components/QuestionNumberButton'; // Adjust the path if necessary
-
+import ConfirmationModal from '../components/ConfirmationModal';
 const Question = () => {
     const { id } = useParams();
     const question = questionsData.find((q) => q.id === parseInt(id));
     const [selectedOption, setSelectedOption] = useState('');
     const totalQuestions = questionsData.length;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+      };
+    
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
+      const handleConfirmation = () => {
+        // Handle confirmation action here, e.g., complete exam
+        // For now, just close the modal
+        navigate("/result");
+      };
+
     const handleOptionSelect = (option) => {
         setSelectedOption(option);
     };
@@ -21,6 +35,7 @@ const Question = () => {
         const previousQuestionId = parseInt(id) - 1;
         return previousQuestionId >= 1 ? previousQuestionId : null;
     };
+    const navigate = useNavigate();
 
     return (
         <div className="flex flex-row items-center justify-center space-y-4 space-x-12 p-16">
@@ -87,13 +102,11 @@ const Question = () => {
                 {getNextQuestionId() !== null ? (
                     <></>
                 ) : (
-                    <Link
-                        to="/result"
-                        className="bg-gray-800 text-center text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
-                    >
-                        Finish
-                    </Link>
+                    <button onClick={openModal} class="bg-gray-900 border rounded-full py-3 px-4 text-white font-medium hover:bg-gray-800 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        Selesaikan Ujian
+                    </button>
                 )}
+                <ConfirmationModal isOpen={isModalOpen} onClose={closeModal} onConfirm={handleConfirmation} />
             </div>
 
             <div className="grid grid-cols-5 gap-2 border border-black p-4 border-2 items-center justify-center">
